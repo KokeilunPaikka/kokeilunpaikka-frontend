@@ -1,0 +1,11 @@
+{
+  "title": "Otsikko",
+  "title-field-placeholder": "Kommentti",
+  "comment": "Kommentti",
+  "comment-field-placeholder": "Kirjoita kommentti",
+  "submit-comment": "Aloita uusi keskustelu",
+  "submit-image": "Lisää kuva",
+  "submit-video": "Lisää video",
+  "video-url": "YouTube videon osoite",
+  "write-video-url": "Kirjoita YouTube videon osoite..."
+}

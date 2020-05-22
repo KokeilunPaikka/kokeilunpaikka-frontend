@@ -1,0 +1,19 @@
+{
+  "second-step-title": "Försökets mål",
+  "third-step-title": "Varför, hur och vem?",
+  "experiment-title-placeholder": "Försökets namn",
+  "experiment-description-placeholder": "Försökets beskrivning",
+  "experiment-title-label": "Vad vill du lösa?",
+  "experiment-goal-placeholder": "Försökets mål",
+  "experiment-goal-label": "Skriv här ned försökets mål",
+  "select-themes-label": "Välj teman med anknytning till försöket",
+  "select-themes-placeholder": "Skriv ned eller välj tema",
+  "looking-for-options-label": "Vad söker du?",
+  "experiment-challenge-select-label": "Deltar du i någon pågående sökning efter försök?",
+  "submit-new-experiment": "Skapa ett försök",
+  "submit-new-experiments": "Skapa försök",
+  "fourth-step-title": "Ytterligare frågor",
+  "thank-you-title": "Hej, tack för att du skapade ett försök!",
+  "select-themes-create-new-label": "Skriv för att lägga till ett nytt tema",
+  "thank-you-created": "Du förflyttas till sidan för ditt försök. Där kan du redigera frågor, välja status för försöket bland idé, försök och lärdom samt publicera ditt försök när du är klar."
+}

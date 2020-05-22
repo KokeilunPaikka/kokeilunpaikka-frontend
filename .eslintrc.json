@@ -1,0 +1,55 @@
+{
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended",
+    "plugin:flowtype/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 9
+  },
+  "plugins": ["react", "import", "prettier", "flowtype"],
+  "globals": {
+    "document": true,
+    "window": true,
+    "process": true
+  },
+  "rules": {
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["draft", "ctx"]
+      }
+    ],
+    "prettier/prettier": ["error"],
+    "no-console": ["error"],
+    "no-unreachable": ["error"],
+    "import/no-unresolved": 0,
+    "react/jsx-filename-extension": 0,
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ],
+    "react/static-property-placement": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "exceptions": ["Component", "Html", "Head", "body", "App"]
+      }
+    ],
+    "react/state-in-constructor": 0,
+    "react/prop-types": [0, { "skipUndeclared": true }]
+  }
+}

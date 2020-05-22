@@ -1,0 +1,19 @@
+{
+  "second-step-title": "Experiment's goal",
+  "third-step-title": "Why, how, who",
+  "experiment-title-placeholder": "Experiment name",
+  "experiment-description-placeholder": "Experiment description",
+  "experiment-title-label": "What do you want to solve",
+  "experiment-goal-placeholder": "Experiment's goal",
+  "experiment-goal-label": "Write experiment's goal",
+  "select-themes-label": "Select themes",
+  "select-themes-placeholder": "Write or choose theme",
+  "looking-for-options-label": "What are you looking for?",
+  "experiment-challenge-select-label": "Are you participating to an experiment challenge?",
+  "submit-new-experiment": "Create experiment",
+  "submit-new-experiments": "Create experiments",
+  "fourth-step-title": "Additional questions",
+  "thank-you-title": "Thank you for creating an experiment!",
+  "select-themes-create-new-label": "Add a new theme by writing",
+  "thank-you-created": "We will soon direct you to your experiment`s site. There you can update questions, pick the right stage between idea, experiment and lesson but also publish your experiment when you are ready."
+}

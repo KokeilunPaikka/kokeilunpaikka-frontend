@@ -1,0 +1,11 @@
+{
+  "title": "Rubrik",
+  "title-field-placeholder": "Kommentar",
+  "comment": "Kommentar",
+  "comment-field-placeholder": "Skriv en kommentar",
+  "submit-comment": "Börja en ny diskussion",
+  "submit-image": "Lägga till en bild",
+  "submit-video": "Lägga till en video",
+  "video-url": "URL till YouTube-video",
+  "write-video-url": "Skriv en URL till en YouTube-video..."
+}

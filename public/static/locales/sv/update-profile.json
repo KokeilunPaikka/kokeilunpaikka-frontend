@@ -1,0 +1,18 @@
+{
+  "person-description-placeholder": "Berätta kortfattat om dig själv",
+  "person-description-label": "Beskrivning",
+  "person-looking-for-label": "Vad letar du efter?",
+  "person-offering-label": "Skulle du vilja hjälpa andra med något av följande?",
+  "person-theme-label": "Välj teman som intresserar dig",
+  "person-theme-placeholder": "Skriv ned eller välj tema",
+  "person-status-label": "Jag är",
+  "person-status-placeholder": "Studerande, Företagare, Investerare, Pensionär osv.",
+  "person-facebook-placeholder": "Facebook adress",
+  "person-twitter-placeholder": "Twitter adress",
+  "person-linkedin-placeholder": "Linkedin adress",
+  "person-instagram-placeholder": "Instagram adress",
+  "first-form-title": "Berätta om dig själv",
+  "second-form-title": "Kontaktuppgifter och bild",
+  "third-form-title": "Inställningar",
+  "profile-saved-toast": "Profil sparad!"
+}

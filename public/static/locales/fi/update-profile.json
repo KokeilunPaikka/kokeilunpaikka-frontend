@@ -1,0 +1,20 @@
+{
+  "person-description-placeholder": "Kerro lyhyesti itsestäsi",
+  "person-description-label": "Kuvaus",
+  "person-looking-for-label": "Mitä etsit Kokeilun paikasta?",
+  "person-offering-label": "Haluatko tarjota muille jotakin seuraavista?",
+  "person-theme-label": "Valitse sinua kiinnostavat teemat",
+  "person-theme-placeholder": "Kirjoita tai valitse teema",
+  "person-status-label": "Olen",
+  "send-notification-label": "Lähetä sähköpostia, kun kiinnostuksen kohteitani vastaavia kokeiluja julkaistaan.",
+  "person-status-placeholder": "Opiskelija, Yrittäjä, Sijoittaja, jne.",
+  "person-facebook-placeholder": "Facebook osoite",
+  "person-twitter-placeholder": "Twitter osoite",
+  "person-linkedin-placeholder": "LinkedIn osoite",
+  "person-instagram-placeholder": "Instagram osoite",
+  "first-form-title": "Kerro itsestäsi",
+  "second-form-title": "Yhteystiedot ja kuva",
+  "third-form-title": "Asetukset",
+  "profile-saved-toast": "Profiili tallennettu!",
+  "subscribe-or-unsubscribe-newsletter": "Tilaa tai peru uutiskirje"
+}

@@ -1,0 +1,19 @@
+{
+  "person-description-placeholder": "Short description of yourself",
+  "person-description-label": "Description",
+  "person-looking-for-label": "What are you looking for?",
+  "person-offering-label": "Would you like to help others?",
+  "person-theme-label": "Select themes",
+  "person-theme-placeholder": "Write or choose theme",
+  "person-status-label": "I'm",
+  "send-notification-label": "Send email about new experiments",
+  "person-status-placeholder": "Student, entrepreneur, investor, etc.",
+  "person-facebook-placeholder": "Facebook address",
+  "person-twitter-placeholder": "Twitter address",
+  "person-linkedin-placeholder": "Linkedin address",
+  "person-instagram-placeholder": "Instagram address",
+  "first-form-title": "Tell about yourself",
+  "second-form-title": "Contact information and image",
+  "profile-saved-toast": "The profile was saved!",
+  "subscribe-or-unsubscribe-newsletter": "Subscribe or unsubscribe newsletter"
+}

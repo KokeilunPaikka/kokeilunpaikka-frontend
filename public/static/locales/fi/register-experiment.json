@@ -1,0 +1,19 @@
+{
+  "second-step-title": "Kokeilun tavoite",
+  "third-step-title": "Miksi, miten ja kuka",
+  "experiment-title-placeholder": "Kokeilun nimi",
+  "experiment-description-placeholder": "Kokeilun kuvaus",
+  "experiment-title-label": "Mitä haluat ratkaista",
+  "experiment-goal-placeholder": "Kokeilun tavoite",
+  "experiment-goal-label": "Kirjoita tähän kokeilun tavoite",
+  "select-themes-label": "Valitse kokeiluun liittyvät teemat",
+  "select-themes-placeholder": "Kirjoita tai valitse teema",
+  "looking-for-options-label": "Mitä etsit?",
+  "experiment-challenge-select-label": "Osallistutko johonkin käynnissä olevaan kokeilunhakuun?",
+  "submit-new-experiment": "Luo kokeilu",
+  "submit-new-experiments": "Luomaan kokeiluja",
+  "fourth-step-title": "Lisäkysymykset",
+  "thank-you-title": "Hei, kiitos kokeilun luomisesta!",
+  "select-themes-create-new-label": "Lisää uusi teema kirjoittamalla",
+  "thank-you-created": "Sinut ohjataan kokeilusi sivulle. Siellä pystyt muokkaamaan kysymyksiä, valitsemaan kokeiluille oikean vaiheen idean, kokeilun ja opin väliltä sekä julkaisemaan kokeilusi, kun olet valmis."
+}

@@ -1,0 +1,21 @@
+{
+    "presets": [
+        "next/babel"
+    ],
+    "plugins": [
+        ["module-resolver", {
+            "root": ["./"],
+            "alias": {
+                "styles": "./styles",
+                "components": "./components",
+                "utils": "./utils",
+                "store": "./store",
+                "node_modules": "./node_modules"
+            }
+        }],
+        ["transform-class-properties"],
+        "transform-flow-strip-types",
+        ["babel-plugin-macros"],
+        ["styled-components", { "ssr": true }]
+    ]
+}

@@ -6,7 +6,7 @@
   "person-theme-label": "Select themes",
   "person-theme-placeholder": "Write or choose theme",
   "person-status-label": "I'm",
-  "send-notification-label": "Send email about new experiments",
+  "send-notification-label": "Send email when experiments that match my interests are published.",
   "person-status-placeholder": "Student, entrepreneur, investor, etc.",
   "person-facebook-placeholder": "Facebook address",
   "person-twitter-placeholder": "Twitter address",
@@ -14,6 +14,7 @@
   "person-instagram-placeholder": "Instagram address",
   "first-form-title": "Tell about yourself",
   "second-form-title": "Contact information and image",
+  "third-form-title": "Settings",
   "profile-saved-toast": "The profile was saved!",
-  "subscribe-or-unsubscribe-newsletter": "Subscribe or unsubscribe newsletter"
+  "subscribe-or-unsubscribe-newsletter": "Order or cancel our newsletter (in Finnish)"
 }

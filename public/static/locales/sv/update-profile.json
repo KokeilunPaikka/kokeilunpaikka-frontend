@@ -11,8 +11,10 @@
   "person-twitter-placeholder": "Twitter adress",
   "person-linkedin-placeholder": "Linkedin adress",
   "person-instagram-placeholder": "Instagram adress",
+  "send-notification-label": "Skicka epost när försök som motsvarar mina intressen publiceras.",
   "first-form-title": "Berätta om dig själv",
   "second-form-title": "Kontaktuppgifter och bild",
   "third-form-title": "Inställningar",
-  "profile-saved-toast": "Profil sparad!"
+  "profile-saved-toast": "Profil sparad!",
+  "subscribe-or-unsubscribe-newsletter": "Beställ eller avbryt vårt nyhetsbrev (på finska)"
 }

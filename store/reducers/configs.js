@@ -6,7 +6,10 @@ import produce from 'immer'
 const initialState = {
   isPending: false,
   error: null,
-  config: {}
+  config: {
+    top_menu_opacity: 0,
+    front_page_image_opacity: 0.01
+  }
 }
 
 export default typeToReducer(
@@ -26,7 +29,9 @@ export default typeToReducer(
         return produce(state, draft => {
           draft.isPending = false
           const [config] = action.payload
-          draft.config = config
+          if (config) {
+            draft.config = config
+          }
         })
       }
     }

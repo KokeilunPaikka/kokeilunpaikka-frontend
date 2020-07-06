@@ -120,6 +120,13 @@ const Link = styled.a`
   }
 `
 
+const Step3Root = styled.div`
+  margin-top: 20px;
+  > div {
+    margin-bottom: 30px;
+  }
+`
+
 type OwnProps = $ReadOnly<{|
   comingFromOutside: string
 |}>
@@ -227,7 +234,11 @@ class UpdateProfile extends Component<Props> {
       )
     }
 
-    if (sendExperimentNotification === null && initialNotification) {
+    if (
+      sendExperimentNotification === null &&
+      initialNotification !== null &&
+      typeof initialNotification !== 'undefined'
+    ) {
       this.setState(
         produce(draft => {
           draft.sendExperimentNotification = initialNotification
@@ -374,7 +385,8 @@ class UpdateProfile extends Component<Props> {
       looking_for_ids: options || null,
       offering_ids: offeringOptions || null,
       status_id: status && 'value' in status ? status.value : null,
-      send_experiment_notification: sendExperimentNotification
+      send_experiment_notification:
+        sendExperimentNotification === null ? true : sendExperimentNotification
     }
 
     if (file) {
@@ -597,7 +609,7 @@ class UpdateProfile extends Component<Props> {
     )
 
     const Step3 = (
-      <div key="step3">
+      <Step3Root key="step3">
         <FormRow>
           <FormCol>
             <Link
@@ -619,13 +631,17 @@ class UpdateProfile extends Component<Props> {
                 <Checkbox
                   name={selectName}
                   onChange={this.handleNotification}
-                  checked={sendExperimentNotification}
+                  checked={
+                    sendExperimentNotification === null
+                      ? true
+                      : sendExperimentNotification
+                  }
                 />
               )}
             </LabelInput>
           </FormCol>
         </FormRow>
-      </div>
+      </Step3Root>
     )
 
     const steps = [

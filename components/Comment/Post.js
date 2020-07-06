@@ -32,6 +32,7 @@ const options = {
     ul: [],
     li: [],
     strong: [],
+    blockquote: [],
     img: ['src', 'alt'],
     iframe: [
       'height',

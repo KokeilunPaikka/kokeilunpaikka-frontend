@@ -1,10 +1,11 @@
 // @flow
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Container } from 'components/common'
 import { Button as ButtonBase } from 'components/Button'
 import { Row, Col } from 'components/Layout/Grid'
 import styled from 'styled-components/macro'
-import { Link, useTranslation } from 'i18n'
+import { Link, useTranslation, i18n } from 'i18n'
 
 const Background = styled.div`
   max-width: 100%;
@@ -60,7 +61,8 @@ const Button = styled(ButtonBase)`
 
   @media ${props => props.theme.breakpoints.md} {
     width: auto;
-    padding: 11px 55px 6px;
+    padding: 11px 45px 6px;
+    min-width: ${props => props.minWidth};
   }
 `
 
@@ -88,6 +90,23 @@ const HeroBlock = ({
   headerImage: string,
   opacity: float
 }) => {
+  const [minButtonWidth, setMinButtonWidth] = useState('300px')
+  useEffect(() => {
+    switch (i18n.language) {
+      case 'fi':
+        setMinButtonWidth('300px')
+        break
+      case 'en':
+        setMinButtonWidth('400px')
+        break
+      case 'sv':
+        setMinButtonWidth('350px')
+        break
+      default:
+        setMinButtonWidth('300px')
+        break
+    }
+  }, [i18n.language])
   const [t] = useTranslation()
   const texts = useSelector(state => state.texts.texts)
   const headerText = texts.find(txt => txt.text_type === 'front_page_header')
@@ -105,10 +124,14 @@ const HeroBlock = ({
             </HeroParagraph>
             <ButtonContainer>
               <Link href="/uusi-kokeilu" passHref>
-                <Button>{t('start-experiment')}</Button>
+                <Button minWidth={minButtonWidth}>
+                  {t('start-experiment')}
+                </Button>
               </Link>
               <Link href="/kokeilut" passHref>
-                <Button>{t('experiment-search')}</Button>
+                <Button minWidth={minButtonWidth}>
+                  {t('experiment-search')}
+                </Button>
               </Link>
             </ButtonContainer>
           </ContentCol>

@@ -2,18 +2,22 @@
 
 import { useTranslation } from 'i18n'
 
-const Spinner = () => {
+const Spinner = ({ plain, ...rest }) => {
   const [t] = useTranslation()
+
+  const styles = !plain ? {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: 25,
+    width: '100%',
+    alignItems: 'center',
+  } : {}
 
   return (
     <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginTop: 25,
-        width: '100%',
-        alignItems: 'center'
-      }}
+      style={styles}
+      {...rest
+      }
     >
       <img src="/static/spinner.gif" alt={t(`image-alt:loading-indicator`)} />
     </div>

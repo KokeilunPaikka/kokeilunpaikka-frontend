@@ -10,7 +10,7 @@ import { ContainerFluid, Row, Col } from 'components/Layout/Grid'
 import { Button as ButtonBase } from 'components/Button'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { loginUser } from 'store/actions/users'
+import { loginUser, getDetails } from 'store/actions/users'
 
 import { Link, useTranslation } from 'i18n'
 
@@ -63,7 +63,9 @@ const LoginRegister = () => {
 
   const logIn = e => {
     e.preventDefault()
-    dispatch(loginUser({ email, password }))
+    dispatch(loginUser({ email, password })).then(() => {
+      dispatch(getDetails())
+    })
   }
 
   return (

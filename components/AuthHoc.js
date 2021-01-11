@@ -42,7 +42,8 @@ const withAuthSync = WrappedComponent =>
           token !== 'undefined' &&
           Object.entries(user).length === 0
         ) {
-          dispatch(getDetails()).then(() => {})
+          this.setState({ userIsAuthenticated: true })
+          dispatch(getDetails()).then(() => { })
         } else if (Object.entries(user).length > 0) {
           this.setState({ userIsAuthenticated: true })
         }

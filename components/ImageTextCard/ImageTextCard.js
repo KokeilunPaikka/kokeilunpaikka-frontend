@@ -2,6 +2,7 @@
 import styled from 'styled-components/macro'
 import { StageCircle } from 'components/Stage'
 import Icon from 'components/Icon/Icon'
+import Spinner from 'components/Spinner/Spinner'
 
 import { Link, useTranslation } from 'i18n'
 
@@ -106,6 +107,13 @@ const ThemeContainer = styled.div`
     font-size: 12px;
   }
 `
+const StyledSpinner = styled(Spinner)`
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 20px;
+  right: 20px;
+`
 
 const ImageTextCard = ({
   image,
@@ -131,12 +139,12 @@ const ImageTextCard = ({
   const body = /<(?=.*? .*?\/ ?>|br|hr|input|!--|wbr)[a-z]+.*?>|<([a-z]+).*?<\/\1>/i.test(
     description
   ) ? (
-    <ExperimentBody dangerouslySetInnerHTML={{ __html: description }} />
-  ) : (
-    <ExperimentBody>
-      <p>{description}</p>
-    </ExperimentBody>
-  )
+      <ExperimentBody dangerouslySetInnerHTML={{ __html: description }} />
+    ) : (
+      <ExperimentBody>
+        <p>{description}</p>
+      </ExperimentBody>
+    )
 
   let url = image
   if (!image) {
@@ -144,14 +152,17 @@ const ImageTextCard = ({
   }
 
   const [t] = useTranslation()
+  const [showSpinner, setShowSpinner] = React.useState(false)
 
   return (
     <Wrapper style={{ display: 'flex', width: '100%' }}>
       <Link href={href} as={as}>
-        <a
+        <a onClick={() => setShowSpinner(true)}
           style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column' }}
         >
           <ExperimentImage>
+            {showSpinner ? <StyledSpinner plain /> : null}
+
             <img src={url} alt={title} />
             {!isPublished && (
               <ExperimentImageOverlay>

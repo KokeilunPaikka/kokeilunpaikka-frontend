@@ -127,5 +127,6 @@
   "experiment-themes": "Försökets teman",
   "experiment-search-disclaimer-not-logged-in": "Visste du? Genom att registrera dig och lägga till dina intressen i din profil ser du på den här sidan de experiment som rekommenderas speciellt för dig.",
   "experiment-search-disclaimer-no-interests": "Visste du? Genom att lägga till dina intressen i din profil ser du på den här sidan experiment som rekommenderas speciellt för dig.",
-  "experiment-search-disclaimer": "Bra! Du ser på den här sidan försök som matchar dina intressen eftersom du har uppdaterat din profil. Genom att lägga till dina intressen ser du ännu fler experiment som rekommenderas speciellt för dig."
+  "experiment-search-disclaimer": "Bra! Du ser på den här sidan försök som matchar dina intressen eftersom du har uppdaterat din profil. Genom att lägga till dina intressen ser du ännu fler experiment som rekommenderas speciellt för dig.",
+  "views": "visningar"
 }

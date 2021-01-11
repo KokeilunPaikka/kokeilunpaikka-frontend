@@ -175,6 +175,13 @@ const AuthorName = styled.div`
     }
   }
 `
+const OrganizerName = styled.div`
+  p {
+    color: ${props => props.theme.colors.primary};
+    margin: 20px;
+    font-weight: bold;
+  }
+`
 
 const EditLink = styled.div`
   font-size: 14px;
@@ -313,6 +320,10 @@ const ThemeContainer = styled.div`
     font-weight: bold;
   }
 `
+const Views = styled.p`
+  color: ${props => props.theme.colors.primary};
+  font-weight: bold;
+`
 
 class Experiment extends Component {
   state = {
@@ -447,7 +458,9 @@ class Experiment extends Component {
         published_at: publishedAt,
         experiment_challenges: experimentChallenges,
         is_published: isPublished,
-        themes
+        themes,
+        organizer,
+        views
       },
       user: {
         isLogged,
@@ -479,73 +492,38 @@ class Experiment extends Component {
     const RenderHTML = props => (
       // Backend wants us to render html
       // eslint-disable-next-line
-      <div dangerouslySetInnerHTML={{ __html: xss(anchorme(props.HTML)) }} />
+      <p
+        style={{
+          whiteSpace: 'pre-wrap'
+        }}
+        dangerouslySetInnerHTML={{ __html: xss(anchorme(props.HTML)) }}
+      />
     )
 
     const stage1Questions = questionAnswers
       .filter(({ stage_id: id }) => id === 1)
-      .map(({ id, value: answer, question, question_id: questionId }) => (
-        <Question key={id}>
-          <h2>{question}</h2>
-          <RenderHTML
-            HTML={answer}
-            style={{
-              lineHeight: '18px',
-              whiteSpace: 'pre-wrap',
-              fontSize: 14,
-              color: '#4A4A4A',
-              fontWeight: 300,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis'
-            }}
-          />
-          {isLogged && me.length > 0 ? (
-            <EditLink
-              style={{ marginTop: 20 }}
-              onClick={() => this.openQuestionModal(questionId)}
-            >
-              {t('common:edit-answer')}
-              <Icon
-                icon={['fa', 'pencil-alt']}
-                fixedWidth
-                size="1x"
-                width="16"
-              />
-            </EditLink>
-          ) : null}
-
-          <StyledModal
-            isOpen={questionModal[questionId]}
-            onRequestClose={this.closeQuestionModal}
-          >
-            <ExperimentQuestionForm
-              questionId={questionId}
-              question={question}
-              questionAnswer={answer}
-              slug={slug}
-              closeModal={this.closeQuestionModal}
+      .map(
+        ({
+          id,
+          value: answer,
+          question,
+          question_id: questionId,
+          description: questionDescription
+        }) => (
+          <Question key={id}>
+            <h2>{question}</h2>
+            <RenderHTML
+              HTML={answer}
+              style={{
+                lineHeight: '18px',
+                whiteSpace: 'pre-wrap',
+                fontSize: 14,
+                color: '#4A4A4A',
+                fontWeight: 300,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
+              }}
             />
-          </StyledModal>
-        </Question>
-      ))
-
-    const stage2Questions = questionAnswers
-      .filter(({ stage_id: id }) => id === 2)
-      .map(({ id, value: answer, question, question_id: questionId }) => (
-        <Question key={id}>
-          <h2>{question}</h2>
-          <RenderHTML
-            HTML={answer}
-            style={{
-              lineHeight: '18px',
-              whiteSpace: 'pre-wrap',
-              fontSize: 14,
-              color: '#4A4A4A',
-              fontWeight: 300,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis'
-            }}
-          >
             {isLogged && me.length > 0 ? (
               <EditLink
                 style={{ marginTop: 20 }}
@@ -560,25 +538,89 @@ class Experiment extends Component {
                 />
               </EditLink>
             ) : null}
-          </RenderHTML>
-          <StyledModal
-            isOpen={questionModal[questionId]}
-            onRequestClose={this.closeQuestionModal}
-          >
-            <ExperimentQuestionForm
-              questionId={questionId}
-              question={question}
-              questionAnswer={answer}
-              slug={slug}
-              closeModal={this.closeQuestionModal}
-            />
-          </StyledModal>
-        </Question>
-      ))
+
+            <StyledModal
+              isOpen={questionModal[questionId]}
+              onRequestClose={this.closeQuestionModal}
+            >
+              <ExperimentQuestionForm
+                questionId={questionId}
+                description={questionDescription}
+                question={question}
+                questionAnswer={answer}
+                slug={slug}
+                closeModal={this.closeQuestionModal}
+              />
+            </StyledModal>
+          </Question>
+        )
+      )
+
+    const stage2Questions = questionAnswers
+      .filter(({ stage_id: id }) => id === 2)
+      .map(
+        ({
+          id,
+          value: answer,
+          question,
+          question_id: questionId,
+          description: questionDescription
+        }) => (
+          <Question key={id}>
+            <h2>{question}</h2>
+            <RenderHTML
+              HTML={answer}
+              style={{
+                lineHeight: '18px',
+                whiteSpace: 'pre-wrap',
+                fontSize: 14,
+                color: '#4A4A4A',
+                fontWeight: 300,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
+              }}
+            >
+              {isLogged && me.length > 0 ? (
+                <EditLink
+                  style={{ marginTop: 20 }}
+                  onClick={() => this.openQuestionModal(questionId)}
+                >
+                  {t('common:edit-answer')}
+                  <Icon
+                    icon={['fa', 'pencil-alt']}
+                    fixedWidth
+                    size="1x"
+                    width="16"
+                  />
+                </EditLink>
+              ) : null}
+            </RenderHTML>
+            <StyledModal
+              isOpen={questionModal[questionId]}
+              onRequestClose={this.closeQuestionModal}
+            >
+              <ExperimentQuestionForm
+                description={questionDescription}
+                questionId={questionId}
+                question={question}
+                questionAnswer={answer}
+                slug={slug}
+                closeModal={this.closeQuestionModal}
+              />
+            </StyledModal>
+          </Question>
+        )
+      )
 
     const stage3 = questionAnswers.filter(({ stage_id: id }) => id === 3)
     const stage3Questions = stage3.map(
-      ({ id, value: answer, question, question_id: questionId }) => (
+      ({
+        id,
+        value: answer,
+        question,
+        question_id: questionId,
+        description: questionDescription
+      }) => (
         <div key={id} style={{ display: 'inline-block' }}>
           <h2>{question}</h2>
           <RenderHTML
@@ -612,6 +654,7 @@ class Experiment extends Component {
             onRequestClose={this.closeQuestionModal}
           >
             <ExperimentQuestionForm
+              description={questionDescription}
               questionId={questionId}
               question={question}
               questionAnswer={answer}
@@ -646,24 +689,31 @@ class Experiment extends Component {
       })
 
       return (
-        <div
-          key={responsible.full_name}
-          style={{ display: 'flex', alignItems: 'center', padding: '20px 5px' }}
-        >
-          {image}
-          <AuthorName hasProfilePic={!!image}>
-            <Link
-              href={{
-                pathname: '/kokeilija/[id]',
-                query: {
-                  id: responsible.id
-                }
-              }}
-              as={`/kokeilija/${responsible.id}`}
-            >
-              <a>{responsible.full_name}</a>
-            </Link>
-          </AuthorName>
+        <div>
+          <div
+            key={responsible.full_name}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              padding: '20px 5px'
+            }}
+          >
+            {image}
+            <AuthorName hasProfilePic={!!image}>
+              <Link
+                href={{
+                  pathname: '/kokeilija/[id]',
+                  query: {
+                    id: responsible.id
+                  }
+                }}
+                as={`/kokeilija/${responsible.id}`}
+              >
+                <a>{responsible.full_name}</a>
+              </Link>
+            </AuthorName>
+          </div>
+          <OrganizerName>{organizer ? <p>{organizer}</p> : null}</OrganizerName>
         </div>
       )
     })
@@ -816,11 +866,15 @@ class Experiment extends Component {
                   {isPublished ? (
                     <CreatedTime>
                       <div>
+                        <Views>
+                          {views} {t('common:views')}
+                        </Views>
                         {t('common:experiment-created')}{' '}
                         {format(new Date(publishedAt), 'dd.MM.yyyy')}
                       </div>
                     </CreatedTime>
                   ) : null}
+
                   {responsibles}
                   {isLogged && me.length > 0 ? (
                     <EditResponsible onClick={this.openResponsibleModal}>

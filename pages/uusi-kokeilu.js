@@ -258,6 +258,7 @@ const InstructionsDisclaimer = styled.p`
   line-height: 18px;
   text-align: center;
 `
+const maxTextLength = 900
 
 type OwnProps = $ReadOnly<{|
   comingFromOutside: string
@@ -367,6 +368,7 @@ class NewExperiment extends Component<Props> {
         draft.fields[name] = value
       })
     )
+    this.setState()
   }
 
   handleQuestion = e => {
@@ -613,11 +615,12 @@ class NewExperiment extends Component<Props> {
                   placeholder={t(
                     'register-experiment:experiment-goal-placeholder'
                   )}
-                  label={t('register-experiment:experiment-goal-label')}
+                  label={`${t('register-experiment:experiment-goal-label')}`}
                   name="description"
                   onChange={this.handleChange}
                   required
                   value={description}
+                  maxLength={maxTextLength}
                 />
               </FormCol>
             </FormRow>

@@ -7,7 +7,6 @@ import { Form } from 'components/Forms'
 import { Button } from 'components/Button'
 import { connect } from 'react-redux'
 import { getSingleExperiment, answerQuestions } from 'store/actions/experiments'
-import styled from 'styled-components/macro'
 import { LabelTextarea } from 'components/Input'
 
 class ExperimentQuestion extends Component {
@@ -30,8 +29,7 @@ class ExperimentQuestion extends Component {
       getSingleExperiment: getSingleExperimentAction,
       answerQuestions: answerQuestionsAction,
       slug,
-      questionId,
-      t
+      questionId
     } = this.props
 
     this.setState({ submitting: true })
@@ -39,7 +37,7 @@ class ExperimentQuestion extends Component {
     answerQuestionsAction(slug, [
       {
         question_id: questionId,
-        value: value
+        value
       }
     ]).then(response => {
       if (response.status) {
@@ -59,18 +57,19 @@ class ExperimentQuestion extends Component {
     } = e
 
     this.setState({
-      value: value
+      value
     })
   }
 
   render() {
     const { submitting, errors, value } = this.state
-    const { t, question } = this.props
+    const { t, question, description } = this.props
 
     let disableField = false
     if (submitting) {
       disableField = true
     }
+
     return (
       <Form onSubmit={this.submitForm}>
         <h3>
@@ -78,7 +77,7 @@ class ExperimentQuestion extends Component {
         </h3>
         <LabelTextarea
           label={t('common:answer')}
-          placeholder={t('common:answer-here')}
+          placeholder={description || t('common:answer-here')}
           name="value"
           onChange={this.handleChange}
           value={value}

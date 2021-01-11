@@ -149,7 +149,7 @@ class StageForm extends Component {
           <div key={question.id} style={{ marginTop: 15 }}>
             <LabelTextarea
               label={question.question}
-              placeholder={t('common:answer-here')}
+              placeholder={question.description || t('common:answer-here')}
               name={`value_${question.id}`}
               onChange={this.handleChange}
               value={value}

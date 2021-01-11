@@ -12,6 +12,7 @@ import {
   mediaBlockRenderer,
   customEntityTransform
 } from 'utils/mediaBlockRenderer'
+import Spinner from 'components/Spinner/Spinner'
 
 const EditorContainer = styled.div`
   background-color: #ffffff;
@@ -58,6 +59,13 @@ const Input = styled.input`
 const LabelInput = styled(LabelInputBase)`
   margin-bottom: 10px;
 `
+const SpinnerContainer = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+`
 
 class CommentEditor extends React.Component {
   constructor(props) {
@@ -66,6 +74,7 @@ class CommentEditor extends React.Component {
       editorState: EditorState.createEmpty(),
       showImageModal: false,
       showVideoModal: false,
+      uploadingImage: false,
       imageError: null,
       fields: {
         imageFile: null,
@@ -156,14 +165,16 @@ class CommentEditor extends React.Component {
     }
   }
 
-  uploadImage = e => {
+  uploadImage = async e => {
     e.preventDefault()
+    await this.setState({ uploadingImage: true })
     const {
       fields: { imageFile }
     } = this.state
     const { uploadImage: uploadImageAction, t } = this.props
     if (!imageFile) {
       this.setState({ imageError: t('common:file-must-be-set') })
+      this.setState({ uploadingImage: false })
     } else {
       uploadImageAction(imageFile, imageFile.type, imageFile.name).then(
         response => {
@@ -194,19 +205,25 @@ class CommentEditor extends React.Component {
           )
           this.onChange(newEditorState)
           this.closeImageModal()
+          this.setState({ uploadingImage: false })
         }
       )
     }
   }
 
   renderImageModal = () => {
-    const { imageError } = this.state
+    const { imageError, uploadingImage } = this.state
     const { t } = this.props
     return (
       <>
         <Input type="file" name="file" onChange={this.handleFile} />
         <Button onClick={this.uploadImage}>{t('comment:submit-image')}</Button>
         {imageError}
+        {uploadingImage && (
+          <SpinnerContainer>
+            <Spinner />
+          </SpinnerContainer>
+        )}
       </>
     )
   }

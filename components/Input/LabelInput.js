@@ -89,7 +89,8 @@ const LabelInput = ({
   children = null,
   labelOnly = false,
   value,
-  defaultValue
+  defaultValue,
+  maxLength
 }: {
   label?: string,
   name: string,
@@ -103,7 +104,8 @@ const LabelInput = ({
   children: Node,
   labelOnly: boolean,
   value: any,
-  defaultValue: any
+  defaultValue: any,
+  maxLength: any
 }) => {
   if (labelOnly) {
     return <Label htmlFor={name}>{label}</Label>
@@ -118,24 +120,25 @@ const LabelInput = ({
       {children ? (
         children(name)
       ) : (
-        <FieldWrapper>
-          <Field
-            as={type === 'textarea' ? 'textarea' : 'input'}
-            className={className}
-            styles={styles}
-            id={name}
-            name={name}
-            type={type}
-            placeholder={placeholder}
-            onChange={onChange}
-            required={required}
-            value={value}
-            defaultValue={defaultValue}
-          />
-          <HelpText>{placeholder}</HelpText>
-          {errorText}
-        </FieldWrapper>
-      )}
+          <FieldWrapper>
+            <Field
+              as={type === 'textarea' ? 'textarea' : 'input'}
+              className={className}
+              styles={styles}
+              id={name}
+              name={name}
+              type={type}
+              placeholder={placeholder}
+              onChange={onChange}
+              required={required}
+              value={value}
+              defaultValue={defaultValue}
+              maxLength={maxLength}
+            />
+            <HelpText>{placeholder}</HelpText>
+            {errorText}
+          </FieldWrapper>
+        )}
     </Wrapper>
   )
 }

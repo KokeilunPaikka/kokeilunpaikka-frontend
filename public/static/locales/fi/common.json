@@ -127,5 +127,6 @@
   "experiment-themes": "Kokeilun teemat",
   "experiment-search-disclaimer-not-logged-in": "Tiesitkö? Rekisteröitymällä ja lisäämällä kiinnostuksen kohteita profiilissasi, näet tällä sivulla juuri sinulle suositeltuja kokeiluja.",
   "experiment-search-disclaimer-no-interests": "Tiesitkö? Lisäämällä kiinnostuksen kohteita profiilissasi, näet tällä sivulla juuri sinulle suositeltuja kokeiluja.",
-  "experiment-search-disclaimer": "Hienoa! Näet sivulla kiinnostuksen kohteitasi vastaavia kokeiluja, koska olet päivittänyt profiiliasi. Kiinnostuksen kohteita lisäämällä näet vielä enemmän sinulle suositeltuja kokeiluja."
+  "experiment-search-disclaimer": "Hienoa! Näet sivulla kiinnostuksen kohteitasi vastaavia kokeiluja, koska olet päivittänyt profiiliasi. Kiinnostuksen kohteita lisäämällä näet vielä enemmän sinulle suositeltuja kokeiluja.",
+  "views": "katselukertaa"
 }

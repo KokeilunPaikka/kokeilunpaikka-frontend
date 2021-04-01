@@ -320,10 +320,6 @@ const ThemeContainer = styled.div`
     font-weight: bold;
   }
 `
-const Views = styled.p`
-  color: ${props => props.theme.colors.primary};
-  font-weight: bold;
-`
 
 class Experiment extends Component {
   state = {
@@ -459,8 +455,7 @@ class Experiment extends Component {
         experiment_challenges: experimentChallenges,
         is_published: isPublished,
         themes,
-        organizer,
-        views
+        organizer
       },
       user: {
         isLogged,
@@ -866,15 +861,11 @@ class Experiment extends Component {
                   {isPublished ? (
                     <CreatedTime>
                       <div>
-                        <Views>
-                          {views} {t('common:views')}
-                        </Views>
                         {t('common:experiment-created')}{' '}
                         {format(new Date(publishedAt), 'dd.MM.yyyy')}
                       </div>
                     </CreatedTime>
                   ) : null}
-
                   {responsibles}
                   {isLogged && me.length > 0 ? (
                     <EditResponsible onClick={this.openResponsibleModal}>

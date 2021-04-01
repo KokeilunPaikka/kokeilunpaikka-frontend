@@ -605,6 +605,7 @@ class NewExperiment extends Component<Props> {
                   onChange={this.handleChange}
                   required
                   value={name}
+                  maxLength={200}
                 />
               </FormCol>
             </FormRow>

@@ -51,7 +51,7 @@
     "redux-thunk": "^2.3.0",
     "sass": "^1.26.3",
     "styled-components": "^5.0.1",
-    "swiper": "^5.2.0",
+    "swiper": "^6.5.1",
     "type-to-reducer": "^1.2.0",
     "xss": "^1.0.6"
   },

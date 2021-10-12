@@ -16,5 +16,8 @@
   "second-form-title": "Yhteystiedot ja kuva",
   "third-form-title": "Asetukset",
   "profile-saved-toast": "Profiili tallennettu!",
-  "subscribe-or-unsubscribe-newsletter": "Tilaa tai peru uutiskirje"
+  "subscribe-or-unsubscribe-newsletter": "Tilaa tai peru uutiskirje",
+  "looking-for-tooltip": "Kertomalla tarpeesi, muut käyttäjät tietävät miten voivat auttaa sinua. Tiedot näkyvät Kokeilukirjaston \"Selaa kokeilijoita\" näkymässä.",
+  "offering-tooltip": "Kerro miten voit auttaa muita. Tiedot näkyvät Kokeilukirjaston \"Selaa kokeilijoita\" näkymässä.",
+  "description-tooltip": "Kerro itsestäsi. Tämä kuvaus näkyy kaikille käyttäjille"
 }

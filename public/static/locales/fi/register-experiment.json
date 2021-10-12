@@ -1,6 +1,8 @@
 {
   "second-step-title": "Kokeilun tavoite",
   "third-step-title": "Miksi, miten ja kuka",
+  "experiment-organizer": "Kokeilun toteuttajaorganisaatio",
+  "experiment-organizer-placeholder": "Organisaatio",
   "experiment-title-placeholder": "Kokeilun nimi",
   "experiment-description-placeholder": "Kokeilun kuvaus",
   "experiment-title-label": "Mitä haluat ratkaista",
@@ -15,5 +17,7 @@
   "fourth-step-title": "Lisäkysymykset",
   "thank-you-title": "Hei, kiitos kokeilun luomisesta!",
   "select-themes-create-new-label": "Lisää uusi teema kirjoittamalla",
-  "thank-you-created": "Sinut ohjataan kokeilusi sivulle. Siellä pystyt muokkaamaan kysymyksiä, valitsemaan kokeiluille oikean vaiheen idean, kokeilun ja opin väliltä sekä julkaisemaan kokeilusi, kun olet valmis."
+  "thank-you-created": "Sinut ohjataan kokeilusi sivulle. Siellä pystyt muokkaamaan kysymyksiä, valitsemaan kokeiluille oikean vaiheen idean, kokeilun ja opin väliltä sekä julkaisemaan kokeilusi, kun olet valmis.",
+  "tooltips-themes": "Teemat ovat kokeiluun liittyviä avainsanoja. Niitä lisäämällä muut käyttäjät löytävät kokeilusi.",
+  "looking-for-tooltip": "Kertomalla tarpeesi, muut käyttäjät tietävät miten voivat auttaa sinua. Tiedot näkyvät kokeilun sivulla."
 }

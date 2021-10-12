@@ -25,7 +25,7 @@ export const CLEAR_EXPERIMENT = 'CLEAR_EXPERIMENT'
 // New experiment was created succesfully
 export const NEW_EXPERIMENT = 'NEW_EXPERIMENT'
 
-export const getExperiments = (filters = []) => dispatch => {
+export const getExperiments = (filters = {}) => dispatch => {
   let queryString = ''
   const allFilters = filters
   if (!('page_size' in filters)) {

@@ -1,6 +1,8 @@
 {
   "second-step-title": "Experiment's goal",
   "third-step-title": "Why, how, who",
+  "experiment-organizer": "Experiment organizer",
+  "experiment-organizer-placeholder": "Organizer",
   "experiment-title-placeholder": "Experiment name",
   "experiment-description-placeholder": "Experiment description",
   "experiment-title-label": "What do you want to solve",
@@ -15,5 +17,6 @@
   "fourth-step-title": "Additional questions",
   "thank-you-title": "Thank you for creating an experiment!",
   "select-themes-create-new-label": "Add a new theme by writing",
-  "thank-you-created": "We will soon direct you to your experiment`s site. There you can update questions, pick the right stage between idea, experiment and lesson but also publish your experiment when you are ready."
+  "thank-you-created": "We will soon direct you to your experiment`s site. There you can update questions, pick the right stage between idea, experiment and lesson but also publish your experiment when you are ready.",
+  "tooltips-themes": "Teemat ovat kokeiluun liittyviä avainsanoja. Niitä lisäämällä muut käyttäjät löytävät kokeilusi."
 }

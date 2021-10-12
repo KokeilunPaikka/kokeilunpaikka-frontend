@@ -1,6 +1,8 @@
 {
   "second-step-title": "Försökets mål",
   "third-step-title": "Varför, hur och vem?",
+  "experiment-organizer": "Försökets arrangör",
+  "experiment-organizer-placeholder": "Arrangören",
   "experiment-title-placeholder": "Försökets namn",
   "experiment-description-placeholder": "Försökets beskrivning",
   "experiment-title-label": "Vad vill du lösa?",
@@ -15,5 +17,6 @@
   "fourth-step-title": "Ytterligare frågor",
   "thank-you-title": "Hej, tack för att du skapade ett försök!",
   "select-themes-create-new-label": "Skriv för att lägga till ett nytt tema",
-  "thank-you-created": "Du förflyttas till sidan för ditt försök. Där kan du redigera frågor, välja status för försöket bland idé, försök och lärdom samt publicera ditt försök när du är klar."
+  "thank-you-created": "Du förflyttas till sidan för ditt försök. Där kan du redigera frågor, välja status för försöket bland idé, försök och lärdom samt publicera ditt försök när du är klar.",
+  "tooltips-themes": "Teemat ovat kokeiluun liittyviä avainsanoja. Niitä lisäämällä muut käyttäjät löytävät kokeilusi."
 }

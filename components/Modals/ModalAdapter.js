@@ -15,7 +15,7 @@ const ReactModalAdapter = ({ className, children, ...props }) => {
       portalClassName={className}
       className={contentClassName}
       overlayClassName={overlayClassName}
-      {...props}
+      {...props} // eslint-disable-line
     >
       {children}
 
@@ -27,7 +27,7 @@ const ReactModalAdapter = ({ className, children, ...props }) => {
 const fadeIn = keyframes`from { opacity: 0; }`
 
 const StyledModal = styled(ReactModalAdapter)`
-  &__overlay {
+  [class*='__overlay'] {
     animation: ${fadeIn} 200ms ease-out;
     position: fixed;
     top: 0;
@@ -42,7 +42,7 @@ const StyledModal = styled(ReactModalAdapter)`
     align-items: center;
   }
 
-  &__content {
+  [class*='__content'] {
     border: 1px solid #ccc;
     background: #f6f8ff;
     -webkit-overflow-scrolling: touch;

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import styled from 'styled-components/macro'
 import { MainLayout } from 'components/Layout'
 
-import { LabelInput } from 'components/Input'
+import { Checkbox, LabelInput } from 'components/Input'
 import { Container, Row, Col } from 'components/Layout/Grid'
 
 import { Button as ButtonBase } from 'components/Button'
@@ -120,7 +120,8 @@ class Register extends Component<Props> {
       firstName: '',
       lastName: '',
       email: '',
-      password: ''
+      password: '',
+      sendExperimentNotification: false
     }
   }
 
@@ -137,6 +138,18 @@ class Register extends Component<Props> {
     this.setState(
       produce(draft => {
         draft.fields[name] = value
+      })
+    )
+  }
+
+  handleCheckboxChange = e => {
+    const {
+      currentTarget: { name, checked }
+    } = e
+
+    this.setState(
+      produce(draft => {
+        draft.fields[name] = checked
       })
     )
   }
@@ -221,6 +234,21 @@ class Register extends Component<Props> {
           </FormRow>
           <FormRow>
             <FormCol>
+              <LabelInput
+                label={t('update-profile:send-notification-label')}
+                name="sendExperimentNotification"
+              >
+                {selectName => (
+                  <Checkbox
+                    name={selectName}
+                    onChange={this.handleCheckboxChange}
+                  />
+                )}
+              </LabelInput>
+            </FormCol>
+          </FormRow>
+          <FormRow>
+            <FormCol>
               <Button size="medium" type="submit" as="button">
                 {t('register')}
               </Button>
@@ -276,4 +304,8 @@ export default connect<Props, OwnProps, _, _, _, _>(
     clearRegisterThanks,
     loginUser
   }
-)(withTranslation(['common', 'page-titles'])(AuthHoc(Register)))
+)(
+  withTranslation(['common', 'page-titles', 'update-profile'])(
+    AuthHoc(Register)
+  )
+)

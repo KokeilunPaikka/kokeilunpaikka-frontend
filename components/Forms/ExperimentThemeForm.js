@@ -6,6 +6,7 @@ import { withTranslation, i18n } from 'i18n'
 import { Form } from 'components/Forms'
 import { Button } from 'components/Button'
 import { LabelInput } from 'components/Input'
+import Tooltip from 'components/Tooltip'
 import { connect } from 'react-redux'
 import {
   getSingleExperiment,
@@ -104,6 +105,12 @@ class ExperimentThemeForm extends Component {
         <LabelInput
           label={t('register-experiment:select-themes-label')}
           name="theme"
+          tooltip={
+            <Tooltip
+              title={t('register-experiment:select-themes-label')}
+              text={t('register-experiment:tooltips-themes')}
+            />
+          }
         >
           {selectName => (
             <CreatableSelect

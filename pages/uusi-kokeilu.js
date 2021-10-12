@@ -38,6 +38,7 @@ import { withTranslation, Link } from 'i18n'
 import Router from 'next/router'
 
 import Helmet from 'react-helmet'
+import Tooltip from 'components/Tooltip'
 
 const Button = styled(ButtonBase)`
   font-size: 16px;
@@ -272,7 +273,7 @@ class NewExperiment extends Component<Props> {
   state = {
     step: 0,
     theme: [],
-    fields: { name: '', description: '', questions: {} },
+    fields: { name: '', description: '', organizer: '', questions: {} },
     options: [],
     challenges: []
   }
@@ -387,7 +388,7 @@ class NewExperiment extends Component<Props> {
     e.preventDefault()
     const {
       theme,
-      fields: { name, description, questions },
+      fields: { name, description, organizer, questions },
       options,
       challenges
     } = this.state
@@ -399,6 +400,7 @@ class NewExperiment extends Component<Props> {
     const experimentPayload = {
       name,
       description,
+      organizer,
       experiment_challenge_ids: challenges,
       is_published: false,
       looking_for_ids: options,
@@ -516,7 +518,7 @@ class NewExperiment extends Component<Props> {
     const {
       step,
       theme,
-      fields: { name, description, questions: questionsValues },
+      fields: { name, description, organizer, questions: questionsValues },
       options,
       challenges
     } = this.state
@@ -591,7 +593,9 @@ class NewExperiment extends Component<Props> {
         <Background>
           <TitleContainer>
             <Header>{t('register-experiment:second-step-title')}</Header>
-            <StepCounter>{step + 1}/3</StepCounter>
+            <StepCounter>
+              {step + 1}/{challengeSelectedWithQuestions ? 4 : 3}
+            </StepCounter>
           </TitleContainer>
           <Form onSubmit={this.nextForm}>
             <FormRow>
@@ -625,6 +629,20 @@ class NewExperiment extends Component<Props> {
                 />
               </FormCol>
             </FormRow>
+            <FormRow>
+              <FormCol>
+                <LabelInput
+                  placeholder={t(
+                    'register-experiment:experiment-organizer-placeholder'
+                  )}
+                  label={t('register-experiment:experiment-organizer')}
+                  name="organizer"
+                  onChange={this.handleChange}
+                  value={organizer}
+                  maxLength={200}
+                />
+              </FormCol>
+            </FormRow>
 
             <FormRow>
               <FormCol>
@@ -654,7 +672,9 @@ class NewExperiment extends Component<Props> {
         <Background>
           <TitleContainer>
             <Header>{t('register-experiment:third-step-title')}</Header>
-            <StepCounter>{step + 1}/3</StepCounter>
+            <StepCounter>
+              {step + 1}/{challengeSelectedWithQuestions ? 4 : 3}
+            </StepCounter>
           </TitleContainer>
           <Form
             onSubmit={
@@ -702,7 +722,9 @@ class NewExperiment extends Component<Props> {
         <Background>
           <TitleContainer>
             <Header>{t('common:start-experiment')}</Header>
-            <StepCounter>{step + 1}/3</StepCounter>
+            <StepCounter>
+              {step + 1}/{challengeSelectedWithQuestions ? 4 : 3}
+            </StepCounter>
           </TitleContainer>
           <Form onSubmit={this.nextForm}>
             <FormRow2>
@@ -710,6 +732,12 @@ class NewExperiment extends Component<Props> {
                 <LabelInput
                   label={t('register-experiment:select-themes-label')}
                   name="theme"
+                  tooltip={
+                    <Tooltip
+                      title={t('register-experiment:select-themes-label')}
+                      text={t('register-experiment:tooltips-themes')}
+                    />
+                  }
                 >
                   {selectName => (
                     <CreatableSelect
@@ -739,6 +767,12 @@ class NewExperiment extends Component<Props> {
                 <LabelInput
                   label={t('register-experiment:looking-for-options-label')}
                   labelOnly
+                  tooltip={
+                    <Tooltip
+                      title={t('update-profile:person-looking-for-label')}
+                      text={t('register-experiment:looking-for-tooltip')}
+                    />
+                  }
                 />
                 <Fieldset>
                   {lookingForOptions.map(({ id, value }) => (
@@ -804,7 +838,9 @@ class NewExperiment extends Component<Props> {
         <Background>
           <TitleContainer>
             <Header>{t('register-experiment:fourth-step-title')}</Header>
-            <StepCounter>{step + 1}/3</StepCounter>
+            <StepCounter>
+              {step + 1}/{challengeSelectedWithQuestions ? 4 : 3}
+            </StepCounter>
           </TitleContainer>
           <Form onSubmit={this.submitForm}>
             {extraQuestions}
@@ -966,7 +1002,11 @@ export default connect<Props, OwnProps, _, _, _, _>(
     clearCreatedExperiment
   }
 )(
-  withTranslation(['common', 'register-experiment', 'auth', 'page-titles'])(
-    AuthHoc(NewExperiment)
-  )
+  withTranslation([
+    'common',
+    'register-experiment',
+    'auth',
+    'page-titles',
+    'update-profile'
+  ])(AuthHoc(NewExperiment))
 )

@@ -1,6 +1,7 @@
 {
   "experiment-stages": "Kokeilun vaiheet",
   "experiment-idea": "Kokeilun idea",
+  "stage-change-reminder": "Muista lukea vinkkimme kokeilun toteuttamiseen!",
   "experiment-idea-description": "Kaikki lähtee ideasta. Aloita kokeilu kirjaamalla ideasi. Minkä ongelman haluat ratkaista? Miksi, miten ja mitä?",
   "agile-experiment": "Ketterä kokeilu",
   "agile-experiment-description": "Kun idea on muotoiltu ja mahdollinen rahoitus kokeilulle on saatu, on aika siirtyä kokeilemaan. Kerro myös kuulumisia kokeilemisen matkalta.",
@@ -47,7 +48,7 @@
   "move-to-experiment-stage": "Siirry kokeilu-vaiheeseen",
   "move-to-learn-stage": "Siirry oppi-vaiheeseen",
   "stage-transition-disclaimer": "Voit siirtää kokeiluideasi seuraavaan vaiheeseen, kun lähdet toteuttamaan kokeilua.",
-  "experiment-challenge-stage-disclaimer": "Voit siirtää kokeiluideasi seuraavaan vaiheeseen, kun päätökset kokeiluhausta on julkaistu ja kun lähdet toteuttamaan kokeilua.",
+  "experiment-challenge-stage-disclaimer": "Voit siirtää kokeiluideasi seuraavaan vaiheeseen, kun lähdet toteuttamaan kokeilua tai päätös kokeiluhausta on julkaistu.",
   "learn-stage-disclaimer": "Siirrä kokeilusi seuraavaan vaiheeseen vasta kokeilun päätyttyä ja kiteytä matkan varrella saadut opit.",
   "experiment-created": "Kokeilu on luotu",
   "add-new-responsible": "Lisää henkilö kokeiluusi",
@@ -91,6 +92,8 @@
   "browse-library": "Kokeilukirjastossa voit tutustua kokeiluihin teemoittain.",
   "contact": "Ota yhteyttä",
   "interested-themes": "Kiinnostuksen kohteet",
+  "users-are-looking-for": "Ovat etsimässä...",
+  "users-are-offering": "Ovat tarjoamassa...",
   "user-experiments": "Käyttäjän kokeilut",
   "experimenters": "Kokeilijat",
   "browse-experimenters": "Selaa kokeilijoita",
@@ -108,6 +111,7 @@
   "browse-experiments": " ",
   "search-experiment": "Hae kokeilua",
   "choose-theme": "Valitse teema",
+  "choose-stage": "Valitse vaihe",
   "edit-profile": "Muokkaa profiilia",
   "own-experiments": "Omat kokeilut",
   "firstname": "Etunimi",
@@ -127,5 +131,6 @@
   "experiment-themes": "Kokeilun teemat",
   "experiment-search-disclaimer-not-logged-in": "Tiesitkö? Rekisteröitymällä ja lisäämällä kiinnostuksen kohteita profiilissasi, näet tällä sivulla juuri sinulle suositeltuja kokeiluja.",
   "experiment-search-disclaimer-no-interests": "Tiesitkö? Lisäämällä kiinnostuksen kohteita profiilissasi, näet tällä sivulla juuri sinulle suositeltuja kokeiluja.",
-  "experiment-search-disclaimer": "Hienoa! Näet sivulla kiinnostuksen kohteitasi vastaavia kokeiluja, koska olet päivittänyt profiiliasi. Kiinnostuksen kohteita lisäämällä näet vielä enemmän sinulle suositeltuja kokeiluja."
+  "experiment-search-disclaimer": "Hienoa! Näet sivulla kiinnostuksen kohteitasi vastaavia kokeiluja, koska olet päivittänyt profiiliasi. Kiinnostuksen kohteita lisäämällä näet vielä enemmän sinulle suositeltuja kokeiluja.",
+  "views": "katselukertaa"
 }

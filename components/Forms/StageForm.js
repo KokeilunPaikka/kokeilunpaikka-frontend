@@ -2,7 +2,7 @@
 
 import { Component } from 'react'
 import AuthHoc from 'components/AuthHoc'
-import { withTranslation } from 'i18n'
+import { Link, withTranslation, i18n } from 'i18n'
 import { Form } from 'components/Forms'
 import { Button } from 'components/Button'
 import { connect } from 'react-redux'
@@ -140,6 +140,13 @@ class StageForm extends Component {
       stageNumber,
       experimentChallenges
     } = this.props
+
+    let toolPageLink = '/p/tyokalu'
+    if (i18n.language === 'sv') {
+      toolPageLink = '/p/verktyg'
+    } else if (i18n.language === 'en') {
+      toolPageLink = '/p/tools'
+    }
     const keys = Object.keys(questions)
 
     let allQuestions = []
@@ -176,6 +183,9 @@ class StageForm extends Component {
     return (
       <Form onSubmit={this.submitForm}>
         <Disclaimer>{disclaimer}</Disclaimer>
+        {stageNumber === 2 && (
+          <Link href={toolPageLink}>{t('common:stage-change-reminder')}</Link>
+        )}
         {allQuestions}
         <Error>{commonErrors}</Error>
         <Button

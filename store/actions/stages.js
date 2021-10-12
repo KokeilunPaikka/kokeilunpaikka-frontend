@@ -41,3 +41,14 @@ export const getStageQuestions = (
     meta: key
   })
 }
+
+export const GET_STAGES = 'GET_STAGES'
+
+export const getStages = () => dispatch => {
+  const url = `${DJANGO_URL}/stages/`
+
+  return dispatch({
+    type: GET_STAGES,
+    payload: Get(url)
+  })
+}

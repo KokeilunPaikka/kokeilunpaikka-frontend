@@ -56,6 +56,9 @@ class Index extends Component<Props> {
     if (isLogged && search.get('login-to-profile')) {
       router.push('/profile')
     }
+    if (isLogged && search.get('login-to-profile-edit')) {
+      router.push('/update-profile?step=2')
+    }
   }
 
   render() {

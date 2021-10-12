@@ -13,6 +13,7 @@ import { Button as ButtonBase } from 'components/Button'
 import ImageTextCard from 'components/ImageTextCard'
 import { getExperiments } from 'store/actions/experiments'
 import { getThemes } from 'store/actions/themes'
+import { getStages } from 'store/actions/stages'
 import Spinner from 'components/Spinner/Spinner'
 import { withTranslation, i18n } from 'i18n'
 import AuthHoc from 'components/AuthHoc'
@@ -105,7 +106,8 @@ class Experiments extends Component<Props> {
   state = {
     fields: {
       search: null,
-      theme_ids: null
+      theme_ids: null,
+      stage: null
     },
     page: 1,
     submitting: true,
@@ -117,6 +119,7 @@ class Experiments extends Component<Props> {
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(getThemes(i18n.language))
+    dispatch(getStages())
     dispatch(getExperiments({ first_load: true })).then(() => {
       this.setState({ submitting: false })
     })
@@ -153,6 +156,17 @@ class Experiments extends Component<Props> {
     })
   }
 
+  handleStageChange = e => {
+    const stage = e?.value ?? null
+    const { fields } = this.state
+    this.setState({
+      fields: {
+        ...fields,
+        stage
+      }
+    })
+  }
+
   searchExperiments = (page, setFirstLoad = false) => {
     const { getExperiments: getExperimentsAction } = this.props
     const { fields } = this.state
@@ -166,6 +180,9 @@ class Experiments extends Component<Props> {
     }
     if (fields.theme_ids) {
       filters.theme_ids = fields.theme_ids
+    }
+    if (fields.stage) {
+      filters.stage_id = fields.stage
     }
     const { firstLoad } = this.state
     filters.page = page
@@ -187,6 +204,7 @@ class Experiments extends Component<Props> {
     const {
       experiments: { list: expirementItems, count },
       themes: { curated: themeItems },
+      stages: { stages },
       t,
       user: {
         isLogged,
@@ -198,6 +216,12 @@ class Experiments extends Component<Props> {
 
     const themeOptions = themeItems.map(item => {
       return { value: item.id, label: item.name }
+    })
+    const stageOptions = stages.map(stage => {
+      return {
+        value: stage.stage_number,
+        label: stage.name
+      }
     })
 
     let experiments = null
@@ -265,7 +289,7 @@ class Experiments extends Component<Props> {
           </Row>
           <SearchRow>
             <Row>
-              <Col size={5}>
+              <Col size={4}>
                 <Input
                   name="search"
                   placeholder={t('search-experiment')}
@@ -273,7 +297,7 @@ class Experiments extends Component<Props> {
                   onKeyPress={this.handleKeyPress}
                 />
               </Col>
-              <Col size={5}>
+              <Col size={3.4}>
                 <Select
                   name="theme_ids"
                   handleChange={this.handleSelectChange}
@@ -282,7 +306,16 @@ class Experiments extends Component<Props> {
                   placeholder={t('choose-theme')}
                 />
               </Col>
-              <Col size={2}>
+              <Col size={3}>
+                <Select
+                  name="stage"
+                  handleChange={this.handleStageChange}
+                  options={stageOptions}
+                  selectedOptions={null}
+                  placeholder={t('choose-stage')}
+                />
+              </Col>
+              <Col size={1}>
                 <Wrapper>
                   <Button onClick={() => this.searchExperiments(1, true)}>
                     {t('search')}
@@ -343,9 +376,10 @@ class Experiments extends Component<Props> {
   }
 }
 
-const mapStateToProps = ({ experiments, themes, user }) => ({
+const mapStateToProps = ({ experiments, themes, stages, user }) => ({
   experiments,
   themes,
+  stages,
   user
 })
 
@@ -353,6 +387,7 @@ export default connect<Props, OwnProps, _, _, _, _>(
   mapStateToProps,
   {
     getExperiments,
-    getThemes
+    getThemes,
+    getStages
   }
 )(withTranslation('common')(AuthHoc(Experiments)))

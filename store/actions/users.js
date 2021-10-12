@@ -27,15 +27,23 @@ export const createUser = (
     email: string,
     password: string,
     firstName: string,
-    lastName: string
+    lastName: string,
+    sendExperimentNotification?: boolean
   }>
 ) => dispatch => {
-  const { email, password, firstName, lastName } = user
+  const {
+    email,
+    password,
+    firstName,
+    lastName,
+    sendExperimentNotification
+  } = user
   const body = JSON.stringify({
     email,
     password,
     first_name: firstName,
-    last_name: lastName
+    last_name: lastName,
+    send_experiment_notification: sendExperimentNotification
   })
 
   const url = `${DJANGO_URL}/users/`

@@ -17,6 +17,7 @@ import PaginationLinks from 'components/Pagination/PaginationLinks'
 import { Input } from 'components/Input'
 import { Button as ButtonBase } from 'components/Button'
 import { getThemes } from 'store/actions/themes'
+import { getLookingForOptions } from 'store/actions/experiments'
 import Helmet from 'react-helmet'
 
 const ExperimentCol = styled(Col)`
@@ -77,7 +78,9 @@ class Experimenters extends Component {
     submitting: false,
     fields: {
       search: null,
-      theme_id: null
+      theme_id: null,
+      looking_for: null,
+      offering: null
     }
   }
 
@@ -86,6 +89,8 @@ class Experimenters extends Component {
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(getThemes(i18n.language))
+    const { getLookingForOptions: getLookingForOptionsAction } = this.props
+    getLookingForOptionsAction()
   }
 
   searchUsers = page => {
@@ -99,6 +104,12 @@ class Experimenters extends Component {
     }
     if (fields.theme_id) {
       filters.theme_id = fields.theme_id
+    }
+    if (fields.looking_for) {
+      filters.looking_for = fields.looking_for
+    }
+    if (fields.offering) {
+      filters.offering = fields.offering
     }
 
     getUsersAction(filters).then(() => {
@@ -127,18 +138,15 @@ class Experimenters extends Component {
     })
   }
 
-  handleSelectChange = e => {
-    let newValue = null
-    if (e != null) {
-      const { value } = e
-      newValue = value
-    }
+  handleSelectChange = (e, meta) => {
+    const newValue = e?.value ?? null
+    const { name } = meta
 
     const { fields } = this.state
     this.setState({
       fields: {
         ...fields,
-        theme_id: newValue
+        [name]: newValue
       }
     })
   }
@@ -147,13 +155,20 @@ class Experimenters extends Component {
     const {
       user: { list: userItems, count },
       themes: { curated: themeItems },
-      t
+      t,
+      lookingForOptions
     } = this.props
+    // eslint-disable-next-line
+    console.log(lookingForOptions)
 
     const { page, submitting } = this.state
 
     const themeOptions = themeItems.map(item => {
       return { value: item.id, label: item.name }
+    })
+
+    const lookingForSelectOptions = lookingForOptions.map(option => {
+      return { value: option.id, label: option.value }
     })
 
     const paginationLinks = (
@@ -231,6 +246,24 @@ class Experimenters extends Component {
                   placeholder={t('interested-themes')}
                 />
               </Col>
+              <Col size={5}>
+                <Select
+                  name="looking_for"
+                  handleChange={this.handleSelectChange}
+                  options={lookingForSelectOptions}
+                  selectedOptions={null}
+                  placeholder={t('users-are-looking-for')}
+                />
+              </Col>
+              <Col size={5}>
+                <Select
+                  name="offering"
+                  handleChange={this.handleSelectChange}
+                  options={lookingForSelectOptions}
+                  selectedOptions={null}
+                  placeholder={t('users-are-offering')}
+                />
+              </Col>
               <Col size={2}>
                 <Wrapper>
                   <Button onClick={() => this.searchUsers(1)}>
@@ -254,15 +287,17 @@ class Experimenters extends Component {
   }
 }
 
-const mapStateToProps = ({ user, themes }) => ({
+const mapStateToProps = ({ user, themes, experiments }) => ({
   user,
-  themes
+  themes,
+  lookingForOptions: experiments.options
 })
 
 export default connect(
   mapStateToProps,
   {
     getUsers,
-    getThemes
+    getThemes,
+    getLookingForOptions
   }
 )(withTranslation(['common', 'page-titles'])(AuthHoc(Experimenters)))

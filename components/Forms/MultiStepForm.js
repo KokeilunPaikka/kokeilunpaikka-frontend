@@ -8,6 +8,7 @@ import { HeaderText } from 'components/Text'
 import { Form, FormRow, FormCol } from 'components/Forms'
 
 import { useTranslation } from 'i18n'
+import { useRouter } from 'node_modules/next/router'
 
 const Button = styled(ButtonBase)`
   font-size: 16px;
@@ -115,6 +116,14 @@ const MultiStepForm = ({
   const [t] = useTranslation()
 
   const maxSteps = steps.length
+  const router = useRouter()
+  if (router && router.query && router.query.step) {
+    const step = parseInt(router.query.step, 10)
+    if (activeStep !== step) {
+      setStep(step)
+      router.replace(router.pathname, undefined, { shallow: true })
+    }
+  }
 
   const Crumbs = steps.map(({ step, title }, index) => (
     <Breadcrumb key={step} active={activeStep === step - 1}>

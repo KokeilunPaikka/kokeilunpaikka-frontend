@@ -90,7 +90,8 @@ const LabelInput = ({
   labelOnly = false,
   value,
   defaultValue,
-  maxLength
+  maxLength,
+  tooltip = null
 }: {
   label?: string,
   name: string,
@@ -105,10 +106,19 @@ const LabelInput = ({
   labelOnly: boolean,
   value: any,
   defaultValue: any,
-  maxLength: any
+  maxLength: any,
+  tooltip?: React.ReactNode,
+  tooltipProps: {
+    title: string,
+    text: string
+  }
 }) => {
   if (labelOnly) {
-    return <Label htmlFor={name}>{label}</Label>
+    return (
+      <Label htmlFor={name}>
+        {label}&nbsp;{tooltip}
+      </Label>
+    )
   }
 
   const errorText =
@@ -116,35 +126,40 @@ const LabelInput = ({
 
   return (
     <Wrapper>
-      {label && <Label htmlFor={name}>{label}</Label>}
+      {label && (
+        <Label htmlFor={name}>
+          {label}&nbsp;{tooltip}
+        </Label>
+      )}
       {children ? (
         children(name)
       ) : (
-          <FieldWrapper>
-            <Field
-              as={type === 'textarea' ? 'textarea' : 'input'}
-              className={className}
-              styles={styles}
-              id={name}
-              name={name}
-              type={type}
-              placeholder={placeholder}
-              onChange={onChange}
-              required={required}
-              value={value}
-              defaultValue={defaultValue}
-              maxLength={maxLength}
-            />
-            <HelpText>{placeholder}</HelpText>
-            {errorText}
-          </FieldWrapper>
-        )}
+        <FieldWrapper>
+          <Field
+            as={type === 'textarea' ? 'textarea' : 'input'}
+            className={className}
+            styles={styles}
+            id={name}
+            name={name}
+            type={type}
+            placeholder={placeholder}
+            onChange={onChange}
+            required={required}
+            value={value}
+            defaultValue={defaultValue}
+            maxLength={maxLength}
+          />
+          <HelpText>{placeholder}</HelpText>
+          {errorText}
+        </FieldWrapper>
+      )}
     </Wrapper>
   )
 }
 
 LabelInput.defaultProps = {
-  label: null
+  label: null,
+  tooltip: null
 }
 
 export default LabelInput

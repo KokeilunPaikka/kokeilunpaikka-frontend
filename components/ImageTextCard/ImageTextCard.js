@@ -1,4 +1,5 @@
 // @flow
+import React from 'react'
 import styled from 'styled-components/macro'
 import { StageCircle } from 'components/Stage'
 import Icon from 'components/Icon/Icon'
@@ -139,12 +140,12 @@ const ImageTextCard = ({
   const body = /<(?=.*? .*?\/ ?>|br|hr|input|!--|wbr)[a-z]+.*?>|<([a-z]+).*?<\/\1>/i.test(
     description
   ) ? (
-      <ExperimentBody dangerouslySetInnerHTML={{ __html: description }} />
-    ) : (
-      <ExperimentBody>
-        <p>{description}</p>
-      </ExperimentBody>
-    )
+    <ExperimentBody dangerouslySetInnerHTML={{ __html: description }} />
+  ) : (
+    <ExperimentBody>
+      <p>{description}</p>
+    </ExperimentBody>
+  )
 
   let url = image
   if (!image) {
@@ -157,7 +158,8 @@ const ImageTextCard = ({
   return (
     <Wrapper style={{ display: 'flex', width: '100%' }}>
       <Link href={href} as={as}>
-        <a onClick={() => setShowSpinner(true)}
+        <a // eslint-disable-line
+          onClick={() => setShowSpinner(true)}
           style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column' }}
         >
           <ExperimentImage>

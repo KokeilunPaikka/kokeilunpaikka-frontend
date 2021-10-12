@@ -12,7 +12,7 @@ const DropDownContainer = styled.div`
 `
 
 const LoginModal = styled(StyledModal)`
-  &__content {
+  [class*='__content'] {
     @media ${props => props.theme.breakpoints.md} {
       //min-width: inherit;
       min-width: 25vw;
@@ -23,7 +23,7 @@ const LoginMenu = () => {
   const [open, setOpen] = useState(false)
   useEffect(() => {
     const search = new URLSearchParams(window.location.search)
-    if (search.get('login-to-profile')) {
+    if (search.get('login-to-profile') || search.get('login-to-profile-edit')) {
       setOpen(true)
     }
   }, [])

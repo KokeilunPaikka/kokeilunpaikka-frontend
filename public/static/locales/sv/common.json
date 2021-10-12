@@ -1,6 +1,7 @@
 {
   "experiment-stages": "Försökets etapper",
   "experiment-idea": "Försöksidé",
+  "stage-change-reminder": "Komma ihåg att läsa våra tipps för försök!",
   "experiment-idea-description": "Allt börjar med en idé. Inled försöksprocessen genom att redogöra för din idé. Vilket problem vill du lösa, och varför och hur vill du göra det?",
   "agile-experiment": "Smidig försöksverksamhet",
   "agile-experiment-description": "Efter att du har utformat din idé och fått finansiering för att förverkliga den, är det dags att inleda försöket. Vi vill gärna höra från dig under försökets gång!",
@@ -47,7 +48,7 @@
   "move-to-experiment-stage": "Gå till nästa steg \"försök\"",
   "move-to-learn-stage": "Gå till nästa steg \"lärdomar\"",
   "stage-transition-disclaimer": "När du börjar förverkliga försöket kan du överföra din försöksidé till följande steg.",
-  "experiment-challenge-stage-disclaimer": "När besluten om försöksansökan har gjorts och när du börjar förverkliga försöket kan du överföra din försöksidé till följande steg.",
+  "experiment-challenge-stage-disclaimer": "När börjar du förverkliga försöket eller när när besluten om försöksansökan har gjorts kan du överföra din försöksidé till följande steg. Bekanta dig med våra tipps för försök.",
   "learn-stage-disclaimer": "När du är färdig med försöket kan du överföra det till följande steg samt sammanfatta lärdomarna från försöket.",
   "experiment-created": "Försöket är skapat",
   "add-new-responsible": "Lägg till en person i ditt försök",
@@ -91,6 +92,8 @@
   "browse-library": "I försöksbiblioteket presenteras försöken enligt tema.",
   "contact": "Ta kontakt",
   "interested-themes": "Intressen",
+  "users-are-looking-for": "Söker efter...",
+  "users-are-offering": "Erbjuder...",
   "user-experiments": "Användarens försök",
   "experimenters": "Experimentatorer",
   "browse-experimenters": "Bläddra bland experimentatorer",
@@ -108,6 +111,7 @@
   "browse-experiments": "",
   "search-experiment": "Sök försök",
   "choose-theme": "Välj tema",
+  "choose-stage": "Välj etapp",
   "edit-profile": "Egna försök",
   "own-experiments": "Egna försök",
   "firstname": "Förnamn",
@@ -127,5 +131,6 @@
   "experiment-themes": "Försökets teman",
   "experiment-search-disclaimer-not-logged-in": "Visste du? Genom att registrera dig och lägga till dina intressen i din profil ser du på den här sidan de experiment som rekommenderas speciellt för dig.",
   "experiment-search-disclaimer-no-interests": "Visste du? Genom att lägga till dina intressen i din profil ser du på den här sidan experiment som rekommenderas speciellt för dig.",
-  "experiment-search-disclaimer": "Bra! Du ser på den här sidan försök som matchar dina intressen eftersom du har uppdaterat din profil. Genom att lägga till dina intressen ser du ännu fler experiment som rekommenderas speciellt för dig."
+  "experiment-search-disclaimer": "Bra! Du ser på den här sidan försök som matchar dina intressen eftersom du har uppdaterat din profil. Genom att lägga till dina intressen ser du ännu fler experiment som rekommenderas speciellt för dig.",
+  "views": "visningar"
 }

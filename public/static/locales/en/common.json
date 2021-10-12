@@ -1,6 +1,7 @@
 {
   "experiment-stages": "Experiment stages",
   "experiment-idea": "Idea for an experiment",
+  "stage-change-reminder": "Remember to check out our tips for experimenting!",
   "experiment-idea-description": "It all starts from an idea. Start an experiment by writing down your idea. What problem do you want to solve? Why, how and what?",
   "agile-experiment": "Agile experiment",
   "agile-experiment-description": "Once you have defined your idea and possibly received funding, it’s time to experiment. You can also share your experiences along the way.",
@@ -47,7 +48,7 @@
   "move-to-experiment-stage": "Move to next stage \"experiment\"",
   "move-to-learn-stage": "Move to next stage \"lessons\"",
   "stage-transition-disclaimer": "You can move your experiment into the next stage when you start working on your experiment.",
-  "experiment-challenge-stage-disclaimer": "You can move your experiment into the next stage when decisions regarding the challenge have been made and when you start working on your experiment.",
+  "experiment-challenge-stage-disclaimer": "You can move your experiment into the next stage when you start working on your experiment and when decisions regarding the challenge have been made.",
   "learn-stage-disclaimer": "When your experiment is ready it is time to move it to the next stage. Write down the lessons learned during the experiment.",
   "experiment-created": "Experiment created",
   "add-new-responsible": "Add person to experiment",
@@ -91,6 +92,8 @@
   "browse-library": "Read about the experiments under different themes in the library.",
   "contact": "Contact",
   "interested-themes": "Interested in",
+  "users-are-looking-for": "Are looking for...",
+  "users-are-offering": "Are offering...",
   "user-experiments": "User's experiments",
   "experimenters": "Experimenters",
   "browse-experimenters": "Browser experimenters",
@@ -108,6 +111,7 @@
   "browse-experiments": "Browse experiments",
   "search-experiment": "Search experiment",
   "choose-theme": "Choose theme",
+  "choose-stage": "Choose stage",
   "edit-profile": "Edit profile",
   "own-experiments": "My experiments",
   "firstname": "First name",
@@ -127,5 +131,6 @@
   "experiment-themes": "Experiment's themes",
   "experiment-search-disclaimer-not-logged-in": "Did you know? By registering and adding interests to your profile, you will see experiments recommended specially for you on this page.",
   "experiment-search-disclaimer-no-interests": "Did you know? By adding interests to your profile, you'll see experiments recommended specially for you on this page.",
-  "experiment-search-disclaimer": "Great! You see experiments matching your interests on the page because you've updated your profile. By adding your interests you'll see even more experiments recommended for you."
+  "experiment-search-disclaimer": "Great! You see experiments matching your interests on the page because you've updated your profile. By adding your interests you'll see even more experiments recommended for you.",
+  "views": "views"
 }

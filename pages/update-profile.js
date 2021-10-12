@@ -31,6 +31,7 @@ import { withTranslation, i18n } from 'i18n'
 import Helmet from 'react-helmet'
 import Router from 'next/router'
 import { Icon } from 'components/Icon/index'
+import Tooltip from 'components/Tooltip/Tooltip'
 
 const Fieldset = styled.fieldset`
   border: 0;
@@ -159,7 +160,6 @@ class UpdateProfile extends Component<Props> {
       getStatusOptions: getStatusOptionsAction,
       userIsAuthenticated
     } = this.props
-
     if (userIsAuthenticated) {
       getThemesAction(i18n.language)
       getLookingForOptionsAction()
@@ -473,6 +473,12 @@ class UpdateProfile extends Component<Props> {
               value={description === null ? initialDescription : description}
               type="textarea"
               errors={errors}
+              tooltip={
+                <Tooltip
+                  title={t('update-profile:person-description-label')}
+                  text={t('update-profile:description-tooltip')}
+                />
+              }
             />
           </FormCol>
         </FormRow>
@@ -481,6 +487,12 @@ class UpdateProfile extends Component<Props> {
             <LabelInput
               label={t('update-profile:person-looking-for-label')}
               labelOnly
+              tooltip={
+                <Tooltip
+                  title={t('update-profile:person-looking-for-label')}
+                  text={t('update-profile:looking-for-tooltip')}
+                />
+              }
             />
             <Fieldset>
               {lookingForOptions.map(({ id, value }) => (
@@ -497,6 +509,12 @@ class UpdateProfile extends Component<Props> {
             <LabelInput
               label={t('update-profile:person-offering-label')}
               labelOnly
+              tooltip={
+                <Tooltip
+                  title={t('update-profile:person-offering-label')}
+                  text={t('update-profile:offering-tooltip')}
+                />
+              }
             />
             <Fieldset>
               {lookingForOptions.map(({ id, value, offering_value }) => (
@@ -518,6 +536,12 @@ class UpdateProfile extends Component<Props> {
               <LabelInput
                 label={t('update-profile:person-theme-label')}
                 name="themes"
+                tooltip={
+                  <Tooltip
+                    title={t('register-experiment:select-themes-label')}
+                    text={t('register-experiment:tooltips-themes')}
+                  />
+                }
               >
                 {selectName => (
                   <CreatableSelect
@@ -701,7 +725,10 @@ export default connect<Props, OwnProps, _, _, _, _>(
     uploadImage
   }
 )(
-  withTranslation(['common', 'update-profile', 'page-titles'])(
-    AuthHoc(UpdateProfile)
-  )
+  withTranslation([
+    'common',
+    'update-profile',
+    'page-titles',
+    'register-experiments'
+  ])(AuthHoc(UpdateProfile))
 )

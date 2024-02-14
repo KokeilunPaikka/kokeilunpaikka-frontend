@@ -1,5 +1,5 @@
 # And then copy over node_modules, etc from that stage to the smaller base image
-FROM mhart/alpine-node:12
+FROM mhart/alpine-node:14
 
 # Setting working directory. All the path will be relative to WORKDIR
 WORKDIR /usr/src/app

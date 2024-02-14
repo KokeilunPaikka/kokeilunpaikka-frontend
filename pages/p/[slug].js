@@ -145,6 +145,18 @@ class Page extends Component {
                         />
                       )
                     }
+                    if (b.blockName === 'acf/cookiebot') {
+                      return (
+                        <script
+                          key={`${b.blockName}-${i2}`}
+                          id="CookieDeclaration"
+                          src={`https://consent.cookiebot.com/${b.attrs.data.id}/cd.js`}
+                          type="text/javascript"
+                          data-culture={b.attrs.data.lang}
+                          async
+                        />
+                      )
+                    }
 
                     return null
                   })}
@@ -187,6 +199,17 @@ class Page extends Component {
         )
       } else if (block.blockName === 'acf/hero') {
         blocks.push()
+      } else if (block.blockName === 'acf/cookiebot') {
+        blocks.push(
+          <script
+            key={`${block.blockName}-${index}`}
+            id="CookieDeclaration"
+            src={`https://consent.cookiebot.com/${block.attrs.data.id}/cd.js`}
+            type="text/javascript"
+            data-culture={block.attrs.data.lang}
+            async
+          />
+        )
       }
     })
 
